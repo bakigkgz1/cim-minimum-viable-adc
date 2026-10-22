@@ -39,8 +39,47 @@ os.chdir(ROOT); sys.path.insert(0, str(ROOT)); sys.path.insert(0, str(ROOT / "py
 for p in (DRIVE / "models").glob("*.pth"):
     if not (ROOT / "models" / p.name).exists():
         shutil.copy2(p, ROOT / "models" / p.name); print("copy model", p.name)
-if os.system(f'{sys.executable} -c "from pytorch_quantization.cim.modules import macro"') != 0:
-    assert os.system(f"{sys.executable} -m pip -q install -e {ROOT/'pytorch-quantization'}") == 0
+# NeuroSim's pytorch-quantization needs its compiled CUDA extension (cuda_ext).
+# Its setup.py fails on current Colab, so the extension is compiled with torch's JIT
+# builder instead and dropped into the package; a .pth file makes the package visible
+# to this kernel and to the subprocesses used in S2.
+import site
+PQ = ROOT / "pytorch-quantization"
+Path(site.getsitepackages()[0], "neurosim_pq.pth").write_text(str(PQ) + "\n")
+
+def pq_ready():
+    r = subprocess.run([sys.executable, "-c",
+                        "import torch, pytorch_quantization.cuda_ext, pytorch_quantization.cim.modules.macro"],
+                       cwd="/content", capture_output=True, text=True)
+    if r.returncode != 0:
+        print(r.stderr[-1500:])
+    return r.returncode == 0
+
+if pq_ready():
+    print("pytorch-quantization ready")
+else:
+    subprocess.run([sys.executable, "-m", "pip", "install", "-q", "absl-py", "prettytable", "scipy",
+                    "pyyaml", "ninja"], check=True)
+    print("Compiling cuda_ext with torch JIT (~3-6 min, first time only)...", flush=True)
+    import torch, glob
+    if not torch.cuda.is_available():
+        raise RuntimeError("No GPU in this runtime. Runtime > Change runtime type > T4 GPU, then run this cell again.")
+    nvcc = sorted(glob.glob("/usr/local/cuda*/bin/nvcc")) or ([shutil.which("nvcc")] if shutil.which("nvcc") else [])
+    if not nvcc:
+        raise RuntimeError("GPU present but CUDA toolkit (nvcc) not found under /usr/local/cuda*. Send me the output of: !ls /usr/local; !nvidia-smi")
+    cuda_home = str(Path(nvcc[-1]).resolve().parents[1])
+    os.environ["CUDA_HOME"] = cuda_home
+    import torch.utils.cpp_extension as cpp_ext
+    cpp_ext.CUDA_HOME = cuda_home          # module caches CUDA_HOME at import time
+    print("CUDA_HOME =", cuda_home, "| torch CUDA", torch.version.cuda, flush=True)
+    from torch.utils.cpp_extension import load
+    bdir = Path("/content/pq_build"); bdir.mkdir(exist_ok=True)
+    load(name="cuda_ext", sources=[str(PQ / "src" / "tensor_quant.cpp"), str(PQ / "src" / "tensor_quant_gpu.cu")],
+         build_directory=str(bdir), verbose=False)
+    so = sorted(bdir.glob("cuda_ext*.so"))[0]
+    shutil.copy2(so, PQ / "pytorch_quantization" / so.name)
+    assert pq_ready(), "cuda_ext still not importable - send me the output above"
+    print("pytorch-quantization ready (cuda_ext compiled)")
 
 import torch, torch.nn as nn
 import pytorch_quantization.cim.modules.macro as macro

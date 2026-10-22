@@ -129,3 +129,33 @@ h=[Patch(fc=GRN,ec=INK,label='minimum-viable resolution'),Patch(fc=GRY,ec=INK,la
 a.legend(handles=h,loc='upper center',bbox_to_anchor=(0.5,-0.18),ncol=4,frameon=False,fontsize=8.5)
 save(f,'fig9.png')
 print('ok')
+
+# ---------- Fig 11: per-layer converter allocation at PR = 128 (S3)
+S3p = os.path.join(R, 'S3_mixed_precision.csv')
+if os.path.exists(S3p):
+    S3 = [r for r in csv.DictReader(open(S3p)) if r['n_images'] == '1024']
+    byp = {r['plan']: r for r in S3}
+    f, a = plt.subplots(figsize=(5.8, 3.8))
+    a.axhline(FP10, ls=':', color=INK, lw=1.2)
+    a.text(0.01, FP10 + 2, f'floating point {FP10:.2f}%', fontsize=8.5, color=INK)
+    for key, col, mk, lab in [('share', NAV, 'o', 'ranked by share of clipped values, $s_\\ell$'),
+                              ('rate', '#d9a227', 's', 'ranked by clipped fraction, $c_\\ell$')]:
+        pts = [byp['uniform5']] + [byp[f'{key}_top{k}'] for k in (4, 8, 12, 16)] + [byp['uniform6']]
+        xs = [100 * float(r['conv_share_6bit']) for r in pts]; ys = [float(r['acc']) for r in pts]
+        a.plot(xs, ys, '-' + mk, color=col, lw=1.8, ms=6, label=lab, zorder=3)
+    for k in (4, 8, 16):
+        r = byp[f'share_top{k}']
+        a.annotate(f'{k}', (100 * float(r['conv_share_6bit']), float(r['acc'])), xytext=(0, 8),
+                   textcoords='offset points', ha='center', fontsize=8, color=NAV)
+    r12 = byp['share_top12']
+    a.annotate('12', (100 * float(r12['conv_share_6bit']), float(r12['acc'])), xytext=(0, -15), textcoords='offset points', ha='center', fontsize=8, color=NAV)
+    r16s, r16r = byp['share_top16'], byp['rate_top16']
+    a.annotate(f"{float(r16s['acc']):.1f}%", (100 * float(r16s['conv_share_6bit']), float(r16s['acc'])),
+               xytext=(-40, -6), textcoords='offset points', fontsize=8.5, color=NAV)
+    a.annotate(f"{float(r16r['acc']):.1f}%", (100 * float(r16r['conv_share_6bit']), float(r16r['acc'])),
+               xytext=(8, -14), textcoords='offset points', fontsize=8.5, color='#8a6a10')
+    a.set_xlim(-3, 103); a.set_ylim(0, 100)
+    a.text(2, 31, 'numbers: layers raised to 6 bits', fontsize=8, color='#555')
+    a.set_xlabel('Conversions at 6 bits (% of all, rest at 5 bits)'); a.set_ylabel('Top-1 accuracy (%)')
+    a.legend(loc='upper center', bbox_to_anchor=(0.5, -0.17), ncol=1, frameon=False, fontsize=8.5)
+    save(f, 'fig11.png')

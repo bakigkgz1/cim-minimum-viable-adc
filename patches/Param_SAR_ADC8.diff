@@ -1,0 +1,12 @@
+# Param_SAR_ADC8.cpp: diff against stock Param.cpp at 9825ef4 (as built for this corner)
+--- a/NeuroSIM/Param.cpp
++++ b/NeuroSIM/Param.cpp
+@@ -99,7 +99,7 @@
+ 	novelMapping = true;        // false: conventional mapping (change to false for swin_t)
+ 								// true: novel mapping
+ 								
+-	SARADC = false;              // false: MLSA
++	SARADC = true;              // false: MLSA
+ 	                            // true: sar ADC
+ 	currentMode = false;         // false: MLSA use VSA
+ 	                            // true: MLSA use CSA

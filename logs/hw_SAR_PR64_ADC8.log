@@ -1,0 +1,1012 @@
+log/default/adc_axis=None/adc_calib_method=max/adc_enable=1/adc_precision=8/adc_quant_method=scale/batch_size=64/bitcell=1/calib_batch_size=128/dac_precision=1/dataset=cifar10/detect=0/hardware=1/input_axis=None/input_calib_method=max/input_precision=8/mem_states_file=mem_states.csv/mem_type=resistive/mode=TensorRT/model=resnet18/num_batches=1/off_state=0.006/on_state=1.02e-11/optimize_adc=0/output_noise=0.0/output_noise_file=/parallel_read=64/ppa=1/rate_stuck_0=0.0/rate_stuck_1=0.0/read_noise=0.0/seed=1234/sub_array=[128, 128]/t=1/target=0.0/test_name=hw_SAR_PR64_ADC8/v=0.0/v_list=[0.005, 0.005, 0.005, 0.005, 0.005, 0.005, 0.005, 0.005]/vdd=1/weight_axis=0/weight_calib_method=max/weight_precision=8
+=================FLAGS==================
+dataset: cifar10
+model: resnet18
+data_path: ./datasets/
+model_path: ./models/
+test_name: hw_SAR_PR64_ADC8
+mode: TensorRT
+gpu: 0
+batch_size: 64
+calib_batch_size: 128
+seed: 1234
+logdir: log/default/adc_axis=None/adc_calib_method=max/adc_enable=1/adc_precision=8/adc_quant_method=scale/batch_size=64/bitcell=1/calib_batch_size=128/dac_precision=1/dataset=cifar10/detect=0/hardware=1/input_axis=None/input_calib_method=max/input_precision=8/mem_states_file=mem_states.csv/mem_type=resistive/mode=TensorRT/model=resnet18/num_batches=1/off_state=0.006/on_state=1.02e-11/optimize_adc=0/output_noise=0.0/output_noise_file=/parallel_read=64/ppa=1/rate_stuck_0=0.0/rate_stuck_1=0.0/read_noise=0.0/seed=1234/sub_array=[128, 128]/t=1/target=0.0/test_name=hw_SAR_PR64_ADC8/v=0.0/v_list=[0.005, 0.005, 0.005, 0.005, 0.005, 0.005, 0.005, 0.005]/vdd=1/weight_axis=0/weight_calib_method=max/weight_precision=8
+hardware: 1
+ppa: 1
+num_batches: 1
+sub_array: [128, 128]
+parallel_read: 64
+weight_precision: 8
+input_precision: 8
+dac_precision: 1
+adc_precision: 8
+bitcell: 1
+mem_type: resistive
+off_state: 0.006
+on_state: 1.02e-11
+mem_states_file: mem_states.csv
+vdd: 1
+read_noise: 0.0
+output_noise: 0.0
+output_noise_file: 
+t: 1
+v: 0.0
+v_list: [0.005, 0.005, 0.005, 0.005, 0.005, 0.005, 0.005, 0.005]
+detect: 0
+target: 0.0
+rate_stuck_0: 0.0
+rate_stuck_1: 0.0
+input_calib_method: max
+weight_calib_method: max
+adc_calib_method: max
+input_axis: None
+weight_axis: 0
+adc_axis: None
+adc_quant_method: scale
+optimize_adc: 0
+adc_enable: 1
+logger: <bound method Logger.info of <pytorch_quantization.utils.misc.Logger object at 0x7b670dfdd7f0>>
+========================================
+
+Running in-memory computing functional simulation of resnet18 on cifar10 dataset...
+Building CIFAR-10 data loader with 1 workers
+Building CIFAR-10 data loader with 1 workers
+WARNING: Logging before flag parsing goes to stderr.
+I1022 12:16:04.736517 135685956817024 _utils.py:224] Input is fake quantized to 8 bits in CIMConv2d with axis None!
+Input is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.737301 135685956817024 _utils.py:227] Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+I1022 12:16:04.737631 135685956817024 _utils.py:230] Output is fake quantized to 8 bits in CIMConv2d with axis None!
+Output is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.772687 135685956817024 _utils.py:224] Input is fake quantized to 8 bits in CIMConv2d with axis None!
+Input is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.773352 135685956817024 _utils.py:227] Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+I1022 12:16:04.773678 135685956817024 _utils.py:230] Output is fake quantized to 8 bits in CIMConv2d with axis None!
+Output is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.776382 135685956817024 _utils.py:224] Input is fake quantized to 8 bits in CIMConv2d with axis None!
+Input is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.776762 135685956817024 _utils.py:227] Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+I1022 12:16:04.777025 135685956817024 _utils.py:230] Output is fake quantized to 8 bits in CIMConv2d with axis None!
+Output is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.779672 135685956817024 _utils.py:224] Input is fake quantized to 8 bits in CIMConv2d with axis None!
+Input is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.779968 135685956817024 _utils.py:227] Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+I1022 12:16:04.780225 135685956817024 _utils.py:230] Output is fake quantized to 8 bits in CIMConv2d with axis None!
+Output is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.782544 135685956817024 _utils.py:224] Input is fake quantized to 8 bits in CIMConv2d with axis None!
+Input is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.782867 135685956817024 _utils.py:227] Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+I1022 12:16:04.783126 135685956817024 _utils.py:230] Output is fake quantized to 8 bits in CIMConv2d with axis None!
+Output is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.785746 135685956817024 _utils.py:224] Input is fake quantized to 8 bits in CIMConv2d with axis None!
+Input is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.786044 135685956817024 _utils.py:227] Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+I1022 12:16:04.786317 135685956817024 _utils.py:230] Output is fake quantized to 8 bits in CIMConv2d with axis None!
+Output is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.789201 135685956817024 _utils.py:224] Input is fake quantized to 8 bits in CIMConv2d with axis None!
+Input is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.789529 135685956817024 _utils.py:227] Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+I1022 12:16:04.789813 135685956817024 _utils.py:230] Output is fake quantized to 8 bits in CIMConv2d with axis None!
+Output is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.791985 135685956817024 _utils.py:224] Input is fake quantized to 8 bits in CIMConv2d with axis None!
+Input is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.792319 135685956817024 _utils.py:227] Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+I1022 12:16:04.792599 135685956817024 _utils.py:230] Output is fake quantized to 8 bits in CIMConv2d with axis None!
+Output is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.795521 135685956817024 _utils.py:224] Input is fake quantized to 8 bits in CIMConv2d with axis None!
+Input is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.795844 135685956817024 _utils.py:227] Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+I1022 12:16:04.796088 135685956817024 _utils.py:230] Output is fake quantized to 8 bits in CIMConv2d with axis None!
+Output is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.798919 135685956817024 _utils.py:224] Input is fake quantized to 8 bits in CIMConv2d with axis None!
+Input is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.799225 135685956817024 _utils.py:227] Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+I1022 12:16:04.799501 135685956817024 _utils.py:230] Output is fake quantized to 8 bits in CIMConv2d with axis None!
+Output is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.803098 135685956817024 _utils.py:224] Input is fake quantized to 8 bits in CIMConv2d with axis None!
+Input is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.803439 135685956817024 _utils.py:227] Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+I1022 12:16:04.803728 135685956817024 _utils.py:230] Output is fake quantized to 8 bits in CIMConv2d with axis None!
+Output is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.808818 135685956817024 _utils.py:224] Input is fake quantized to 8 bits in CIMConv2d with axis None!
+Input is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.809144 135685956817024 _utils.py:227] Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+I1022 12:16:04.809450 135685956817024 _utils.py:230] Output is fake quantized to 8 bits in CIMConv2d with axis None!
+Output is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.811728 135685956817024 _utils.py:224] Input is fake quantized to 8 bits in CIMConv2d with axis None!
+Input is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.812027 135685956817024 _utils.py:227] Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+I1022 12:16:04.812278 135685956817024 _utils.py:230] Output is fake quantized to 8 bits in CIMConv2d with axis None!
+Output is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.817328 135685956817024 _utils.py:224] Input is fake quantized to 8 bits in CIMConv2d with axis None!
+Input is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.817672 135685956817024 _utils.py:227] Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+I1022 12:16:04.817926 135685956817024 _utils.py:230] Output is fake quantized to 8 bits in CIMConv2d with axis None!
+Output is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.823155 135685956817024 _utils.py:224] Input is fake quantized to 8 bits in CIMConv2d with axis None!
+Input is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.823554 135685956817024 _utils.py:227] Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+I1022 12:16:04.823846 135685956817024 _utils.py:230] Output is fake quantized to 8 bits in CIMConv2d with axis None!
+Output is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.832013 135685956817024 _utils.py:224] Input is fake quantized to 8 bits in CIMConv2d with axis None!
+Input is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.832359 135685956817024 _utils.py:227] Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+I1022 12:16:04.832653 135685956817024 _utils.py:230] Output is fake quantized to 8 bits in CIMConv2d with axis None!
+Output is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.846323 135685956817024 _utils.py:224] Input is fake quantized to 8 bits in CIMConv2d with axis None!
+Input is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.846680 135685956817024 _utils.py:227] Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+I1022 12:16:04.846942 135685956817024 _utils.py:230] Output is fake quantized to 8 bits in CIMConv2d with axis None!
+Output is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.849868 135685956817024 _utils.py:224] Input is fake quantized to 8 bits in CIMConv2d with axis None!
+Input is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.850214 135685956817024 _utils.py:227] Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+I1022 12:16:04.850516 135685956817024 _utils.py:230] Output is fake quantized to 8 bits in CIMConv2d with axis None!
+Output is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.864303 135685956817024 _utils.py:224] Input is fake quantized to 8 bits in CIMConv2d with axis None!
+Input is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.864711 135685956817024 _utils.py:227] Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+I1022 12:16:04.864989 135685956817024 _utils.py:230] Output is fake quantized to 8 bits in CIMConv2d with axis None!
+Output is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.879626 135685956817024 _utils.py:224] Input is fake quantized to 8 bits in CIMConv2d with axis None!
+Input is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.879975 135685956817024 _utils.py:227] Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+Weight is fake quantized to 8 bits in CIMConv2d with axis 0!
+I1022 12:16:04.880244 135685956817024 _utils.py:230] Output is fake quantized to 8 bits in CIMConv2d with axis None!
+Output is fake quantized to 8 bits in CIMConv2d with axis None!
+I1022 12:16:04.882407 135685956817024 _utils.py:305] Input is fake quantized to 8 bits in CIMAdaptiveAvgPool2d with axis None!
+Input is fake quantized to 8 bits in CIMAdaptiveAvgPool2d with axis None!
+I1022 12:16:04.884073 135685956817024 _utils.py:224] Input is fake quantized to 8 bits in CIMLinear with axis None!
+Input is fake quantized to 8 bits in CIMLinear with axis None!
+I1022 12:16:04.884502 135685956817024 _utils.py:227] Weight is fake quantized to 8 bits in CIMLinear with axis 0!
+Weight is fake quantized to 8 bits in CIMLinear with axis 0!
+I1022 12:16:04.884777 135685956817024 _utils.py:230] Output is fake quantized to 8 bits in CIMLinear with axis None!
+Output is fake quantized to 8 bits in CIMLinear with axis None!
+
+Loading pretrained model ./models/resnet18_cifar10.pth...
+ResNet(
+  (conv1): Sequential(
+    (0): CIMConv2d(
+      3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+      (_input_quantizer): TensorQuantizer(8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+      (_weight_quantizer): TensorQuantizer(8bit fake axis=0 amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+      (_adc_quantizer): TensorQuantizer(unsigned 8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+    )
+    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU(inplace=True)
+  )
+  (conv2_x): Sequential(
+    (0): BasicBlock(
+      (residual_function): Sequential(
+        (0): CIMConv2d(
+          64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+          (_input_quantizer): TensorQuantizer(8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_weight_quantizer): TensorQuantizer(8bit fake axis=0 amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_adc_quantizer): TensorQuantizer(unsigned 8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+        )
+        (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): CIMConv2d(
+          64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+          (_input_quantizer): TensorQuantizer(8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_weight_quantizer): TensorQuantizer(8bit fake axis=0 amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_adc_quantizer): TensorQuantizer(unsigned 8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+        )
+        (4): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (shortcut): Sequential()
+    )
+    (1): BasicBlock(
+      (residual_function): Sequential(
+        (0): CIMConv2d(
+          64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+          (_input_quantizer): TensorQuantizer(8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_weight_quantizer): TensorQuantizer(8bit fake axis=0 amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_adc_quantizer): TensorQuantizer(unsigned 8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+        )
+        (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): CIMConv2d(
+          64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+          (_input_quantizer): TensorQuantizer(8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_weight_quantizer): TensorQuantizer(8bit fake axis=0 amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_adc_quantizer): TensorQuantizer(unsigned 8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+        )
+        (4): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (shortcut): Sequential()
+    )
+  )
+  (conv3_x): Sequential(
+    (0): BasicBlock(
+      (residual_function): Sequential(
+        (0): CIMConv2d(
+          64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False
+          (_input_quantizer): TensorQuantizer(8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_weight_quantizer): TensorQuantizer(8bit fake axis=0 amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_adc_quantizer): TensorQuantizer(unsigned 8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+        )
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): CIMConv2d(
+          128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+          (_input_quantizer): TensorQuantizer(8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_weight_quantizer): TensorQuantizer(8bit fake axis=0 amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_adc_quantizer): TensorQuantizer(unsigned 8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+        )
+        (4): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (shortcut): Sequential(
+        (0): CIMConv2d(
+          64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False
+          (_input_quantizer): TensorQuantizer(8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_weight_quantizer): TensorQuantizer(8bit fake axis=0 amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_adc_quantizer): TensorQuantizer(unsigned 8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+        )
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (residual_function): Sequential(
+        (0): CIMConv2d(
+          128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+          (_input_quantizer): TensorQuantizer(8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_weight_quantizer): TensorQuantizer(8bit fake axis=0 amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_adc_quantizer): TensorQuantizer(unsigned 8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+        )
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): CIMConv2d(
+          128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+          (_input_quantizer): TensorQuantizer(8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_weight_quantizer): TensorQuantizer(8bit fake axis=0 amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_adc_quantizer): TensorQuantizer(unsigned 8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+        )
+        (4): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (shortcut): Sequential()
+    )
+  )
+  (conv4_x): Sequential(
+    (0): BasicBlock(
+      (residual_function): Sequential(
+        (0): CIMConv2d(
+          128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False
+          (_input_quantizer): TensorQuantizer(8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_weight_quantizer): TensorQuantizer(8bit fake axis=0 amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_adc_quantizer): TensorQuantizer(unsigned 8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+        )
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): CIMConv2d(
+          256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+          (_input_quantizer): TensorQuantizer(8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_weight_quantizer): TensorQuantizer(8bit fake axis=0 amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_adc_quantizer): TensorQuantizer(unsigned 8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+        )
+        (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (shortcut): Sequential(
+        (0): CIMConv2d(
+          128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False
+          (_input_quantizer): TensorQuantizer(8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_weight_quantizer): TensorQuantizer(8bit fake axis=0 amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_adc_quantizer): TensorQuantizer(unsigned 8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+        )
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (residual_function): Sequential(
+        (0): CIMConv2d(
+          256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+          (_input_quantizer): TensorQuantizer(8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_weight_quantizer): TensorQuantizer(8bit fake axis=0 amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_adc_quantizer): TensorQuantizer(unsigned 8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+        )
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): CIMConv2d(
+          256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+          (_input_quantizer): TensorQuantizer(8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_weight_quantizer): TensorQuantizer(8bit fake axis=0 amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_adc_quantizer): TensorQuantizer(unsigned 8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+        )
+        (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (shortcut): Sequential()
+    )
+  )
+  (conv5_x): Sequential(
+    (0): BasicBlock(
+      (residual_function): Sequential(
+        (0): CIMConv2d(
+          256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False
+          (_input_quantizer): TensorQuantizer(8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_weight_quantizer): TensorQuantizer(8bit fake axis=0 amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_adc_quantizer): TensorQuantizer(unsigned 8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+        )
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): CIMConv2d(
+          512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+          (_input_quantizer): TensorQuantizer(8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_weight_quantizer): TensorQuantizer(8bit fake axis=0 amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_adc_quantizer): TensorQuantizer(unsigned 8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+        )
+        (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (shortcut): Sequential(
+        (0): CIMConv2d(
+          256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False
+          (_input_quantizer): TensorQuantizer(8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_weight_quantizer): TensorQuantizer(8bit fake axis=0 amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_adc_quantizer): TensorQuantizer(unsigned 8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+        )
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (residual_function): Sequential(
+        (0): CIMConv2d(
+          512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+          (_input_quantizer): TensorQuantizer(8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_weight_quantizer): TensorQuantizer(8bit fake axis=0 amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_adc_quantizer): TensorQuantizer(unsigned 8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+        )
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): CIMConv2d(
+          512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
+          (_input_quantizer): TensorQuantizer(8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_weight_quantizer): TensorQuantizer(8bit fake axis=0 amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+          (_adc_quantizer): TensorQuantizer(unsigned 8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+        )
+        (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (shortcut): Sequential()
+    )
+  )
+  (avg_pool): CIMAdaptiveAvgPool2d(
+    output_size=(1, 1)
+    (_input_quantizer): TensorQuantizer(8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+  )
+  (fc): CIMLinear(
+    in_features=512, out_features=10, bias=True
+    (_input_quantizer): TensorQuantizer(8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+    (_weight_quantizer): TensorQuantizer(8bit fake axis=0 amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+    (_adc_quantizer): TensorQuantizer(unsigned 8bit fake per-tensor amax=dynamic calibrator=MaxCalibrator scale=1.0 quant)
+  )
+)
+Evaluating baseline model...
+
+  0%|          | 0/1 [00:00<?, ?it/s]Test Accuracy of the model on 64 test images: 87.5 %
+Average Test loss: 0.3491691052913666
+
+--------------------------------------------
+evaluation time: 0.42253971099853516
+  0%|          | 0/1 [00:00<?, ?it/s]
+Quantizing inputs and weights...
+Collecting histograms...
+
+  0%|          | 0/2 [00:00<?, ?it/s]I1022 12:16:05.524899 135685956817024 max.py:61] Calibrator encountered negative values. It shouldn't happen after ReLU. Make sure this is the right tensor to calibrate.
+Calibrator encountered negative values. It shouldn't happen after ReLU. Make sure this is the right tensor to calibrate.
+ 50%|█████     | 1/2 [00:00<00:00,  4.64it/s]100%|██████████| 2/2 [00:00<00:00,  5.26it/s]
+
+Computing amax... 
+
+W1022 12:16:05.830376 135685956817024 tensor_quantizer.py:239] Call .cuda() if running on GPU after loading calibrated amax.
+Call .cuda() if running on GPU after loading calibrated amax.
+Finished quantizing inputs and weights.
+Evaluating input and weight quantized model...
+
+  0%|          | 0/1 [00:00<?, ?it/s]Test Accuracy of the model on 64 test images: 87.5 %
+Average Test loss: 0.3574890196323395
+
+--------------------------------------------
+evaluation time: 0.07114815711975098
+  0%|          | 0/1 [00:00<?, ?it/s]
+I1022 12:16:05.946128 135685956817024 misc.py:32] Running inference with detailed hardware simulation...
+Running inference with detailed hardware simulation...
+  0%|          | 0/1 [00:00<?, ?it/s]Test Accuracy of the model on 64 test images: 87.5 %
+Average Test loss: 0.3598329722881317
+
+--------------------------------------------
+evaluation time: 13.113844394683838
+  0%|          | 0/1 [00:13<?, ?it/s]
+ --- Hardware Properties --- 
+subArray size: 
+[128, 128]
+parallel read: 
+64
+ADC precision: 
+8
+cell precision: 
+1
+on/off ratio: 
+1.7e-09
+------------------------------ FloorPlan --------------------------------
+
+Tile and PE size are optimized to maximize memory utilization ( = memory mapped by synapse / total memory on chip)
+
+Desired Conventional Mapped Tile Storage Size: 1024x1024
+Desired Conventional PE Storage Size: 512x512
+Desired Novel Mapped Tile Storage Size: 9x512x512
+User-defined SubArray Size: 128x128
+
+----------------- # of tile used for each layer -----------------
+layer1: 4
+layer2: 16
+layer3: 16
+layer4: 16
+layer5: 16
+layer6: 32
+layer7: 8
+layer8: 8
+layer9: 8
+layer10: 8
+layer11: 16
+layer12: 8
+layer13: 4
+layer14: 8
+layer15: 8
+layer16: 16
+layer17: 8
+layer18: 4
+layer19: 8
+layer20: 8
+layer21: 1
+
+----------------- Speed-up of each layer ------------------
+layer1: 64
+layer2: 64
+layer3: 64
+layer4: 64
+layer5: 64
+layer6: 64
+layer7: 16
+layer8: 64
+layer9: 16
+layer10: 16
+layer11: 16
+layer12: 4
+layer13: 16
+layer14: 4
+layer15: 4
+layer16: 4
+layer17: 1
+layer18: 4
+layer19: 1
+layer20: 1
+layer21: 16
+
+----------------- Utilization of each layer ------------------
+layer1: 0.210938
+layer2: 0.5
+layer3: 0.5
+layer4: 0.5
+layer5: 0.5
+layer6: 0.5
+layer7: 1
+layer8: 0.5
+layer9: 1
+layer10: 1
+layer11: 1
+layer12: 1
+layer13: 1
+layer14: 1
+layer15: 1
+layer16: 1
+layer17: 1
+layer18: 1
+layer19: 1
+layer20: 1
+layer21: 0.625
+Memory Utilization of Whole Chip: 74.8727 % 
+
+---------------------------- FloorPlan Done ------------------------------
+
+
+
+clkPeriod: 1.28372e-08
+-------------------------------------- Hardware Performance --------------------------------------
+-------------------- Estimation of Layer 1 ----------------------
+layer1's readLatency is: 541331ns
+layer1's readDynamicEnergy is: 913591pJ
+layer1's leakagePower is: 0uW
+layer1's leakageEnergy is: 0pJ
+layer1's buffer latency is: 425483ns
+layer1's buffer readDynamicEnergy is: 4680.42pJ
+layer1's ic latency is: 92021.3ns
+layer1's ic readDynamicEnergy is: 264549pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+----------- ADC (or S/As and precharger for SRAM) readLatency is : 23106.9ns
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readLatency is : 450.104ns
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readLatency is : 517773ns
+----------- ADC (or S/As and precharger for SRAM) readDynamicEnergy is : 400987pJ
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readDynamicEnergy is : 140766pJ
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readDynamicEnergy is : 371837pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+-------------------- Estimation of Layer 2 ----------------------
+layer2's readLatency is: 347781ns
+layer2's readDynamicEnergy is: 8.94415e+06pJ
+layer2's leakagePower is: 237.689uW
+layer2's leakageEnergy is: 128668pJ
+layer2's buffer latency is: 230288ns
+layer2's buffer readDynamicEnergy is: 29344.5pJ
+layer2's ic latency is: 82113ns
+layer2's ic readDynamicEnergy is: 1.19684e+06pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+----------- ADC (or S/As and precharger for SRAM) readLatency is : 23106.9ns
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readLatency is : 12003.6ns
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readLatency is : 312670ns
+----------- ADC (or S/As and precharger for SRAM) readDynamicEnergy is : 5.52936e+06pJ
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readDynamicEnergy is : 1.25402e+06pJ
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readDynamicEnergy is : 2.16077e+06pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+-------------------- Estimation of Layer 3 ----------------------
+layer3's readLatency is: 347781ns
+layer3's readDynamicEnergy is: 1.02519e+07pJ
+layer3's leakagePower is: 237.689uW
+layer3's leakageEnergy is: 128668pJ
+layer3's buffer latency is: 230288ns
+layer3's buffer readDynamicEnergy is: 29344.5pJ
+layer3's ic latency is: 82113ns
+layer3's ic readDynamicEnergy is: 1.19684e+06pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+----------- ADC (or S/As and precharger for SRAM) readLatency is : 23106.9ns
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readLatency is : 12003.6ns
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readLatency is : 312670ns
+----------- ADC (or S/As and precharger for SRAM) readDynamicEnergy is : 6.80605e+06pJ
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readDynamicEnergy is : 1.25402e+06pJ
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readDynamicEnergy is : 2.19178e+06pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+-------------------- Estimation of Layer 4 ----------------------
+layer4's readLatency is: 347781ns
+layer4's readDynamicEnergy is: 1.03359e+07pJ
+layer4's leakagePower is: 237.689uW
+layer4's leakageEnergy is: 128668pJ
+layer4's buffer latency is: 230288ns
+layer4's buffer readDynamicEnergy is: 29344.5pJ
+layer4's ic latency is: 82113ns
+layer4's ic readDynamicEnergy is: 1.19684e+06pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+----------- ADC (or S/As and precharger for SRAM) readLatency is : 23106.9ns
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readLatency is : 12003.6ns
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readLatency is : 312670ns
+----------- ADC (or S/As and precharger for SRAM) readDynamicEnergy is : 6.88974e+06pJ
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readDynamicEnergy is : 1.25402e+06pJ
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readDynamicEnergy is : 2.19218e+06pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+-------------------- Estimation of Layer 5 ----------------------
+layer5's readLatency is: 347781ns
+layer5's readDynamicEnergy is: 8.70842e+06pJ
+layer5's leakagePower is: 237.689uW
+layer5's leakageEnergy is: 128668pJ
+layer5's buffer latency is: 230288ns
+layer5's buffer readDynamicEnergy is: 29344.5pJ
+layer5's ic latency is: 82113ns
+layer5's ic readDynamicEnergy is: 1.19684e+06pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+----------- ADC (or S/As and precharger for SRAM) readLatency is : 23106.9ns
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readLatency is : 12003.6ns
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readLatency is : 312670ns
+----------- ADC (or S/As and precharger for SRAM) readDynamicEnergy is : 5.30254e+06pJ
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readDynamicEnergy is : 1.25402e+06pJ
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readDynamicEnergy is : 2.15185e+06pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+-------------------- Estimation of Layer 6 ----------------------
+layer6's readLatency is: 88068.3ns
+layer6's readDynamicEnergy is: 5.43007e+06pJ
+layer6's leakagePower is: 1113.26uW
+layer6's leakageEnergy is: 602640pJ
+layer6's buffer latency is: 58534.5ns
+layer6's buffer readDynamicEnergy is: 14401pJ
+layer6's ic latency is: 20541.1ns
+layer6's ic readDynamicEnergy is: 533449pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+----------- ADC (or S/As and precharger for SRAM) readLatency is : 5776.73ns
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readLatency is : 3074.7ns
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readLatency is : 79216.8ns
+----------- ADC (or S/As and precharger for SRAM) readDynamicEnergy is : 3.76514e+06pJ
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readDynamicEnergy is : 627792pJ
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readDynamicEnergy is : 1.03714e+06pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+-------------------- Estimation of Layer 7 ----------------------
+layer7's readLatency is: 126829ns
+layer7's readDynamicEnergy is: 6.15394e+06pJ
+layer7's leakagePower is: 254.514uW
+layer7's leakageEnergy is: 137776pJ
+layer7's buffer latency is: 67499.1ns
+layer7's buffer readDynamicEnergy is: 15971.4pJ
+layer7's ic latency is: 36297.1ns
+layer7's ic readDynamicEnergy is: 548734pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+----------- ADC (or S/As and precharger for SRAM) readLatency is : 20128.7ns
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readLatency is : 2788.88ns
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readLatency is : 103912ns
+----------- ADC (or S/As and precharger for SRAM) readDynamicEnergy is : 4.59502e+06pJ
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readDynamicEnergy is : 534679pJ
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readDynamicEnergy is : 1.02424e+06pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+-------------------- Estimation of Layer 8 ----------------------
+layer8's readLatency is: 298167ns
+layer8's readDynamicEnergy is: 799931pJ
+layer8's leakagePower is: 44.0656uW
+layer8's leakageEnergy is: 23854.1pJ
+layer8's buffer latency is: 240117ns
+layer8's buffer readDynamicEnergy is: 2914.38pJ
+layer8's ic latency is: 51117.6ns
+layer8's ic readDynamicEnergy is: 153683pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+----------- ADC (or S/As and precharger for SRAM) readLatency is : 6572.63ns
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readLatency is : 205.395ns
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readLatency is : 291389ns
+----------- ADC (or S/As and precharger for SRAM) readDynamicEnergy is : 495669pJ
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readDynamicEnergy is : 85101.3pJ
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readDynamicEnergy is : 219161pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+-------------------- Estimation of Layer 9 ----------------------
+layer9's readLatency is: 126829ns
+layer9's readDynamicEnergy is: 5.85736e+06pJ
+layer9's leakagePower is: 254.514uW
+layer9's leakageEnergy is: 137776pJ
+layer9's buffer latency is: 67499.1ns
+layer9's buffer readDynamicEnergy is: 15971.4pJ
+layer9's ic latency is: 36297.1ns
+layer9's ic readDynamicEnergy is: 548734pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+----------- ADC (or S/As and precharger for SRAM) readLatency is : 20128.7ns
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readLatency is : 2788.88ns
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readLatency is : 103912ns
+----------- ADC (or S/As and precharger for SRAM) readDynamicEnergy is : 4.3019e+06pJ
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readDynamicEnergy is : 534679pJ
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readDynamicEnergy is : 1.02078e+06pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+-------------------- Estimation of Layer 10 ----------------------
+layer10's readLatency is: 126829ns
+layer10's readDynamicEnergy is: 4.26886e+06pJ
+layer10's leakagePower is: 254.514uW
+layer10's leakageEnergy is: 137776pJ
+layer10's buffer latency is: 67499.1ns
+layer10's buffer readDynamicEnergy is: 15971.4pJ
+layer10's ic latency is: 36297.1ns
+layer10's ic readDynamicEnergy is: 548734pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+----------- ADC (or S/As and precharger for SRAM) readLatency is : 20128.7ns
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readLatency is : 2788.88ns
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readLatency is : 103912ns
+----------- ADC (or S/As and precharger for SRAM) readDynamicEnergy is : 2.75779e+06pJ
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readDynamicEnergy is : 534679pJ
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readDynamicEnergy is : 976393pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+-------------------- Estimation of Layer 11 ----------------------
+layer11's readLatency is: 32200.3ns
+layer11's readDynamicEnergy is: 2.6463e+06pJ
+layer11's leakagePower is: 625.237uW
+layer11's leakageEnergy is: 338460pJ
+layer11's buffer latency is: 17293.9ns
+layer11's buffer readDynamicEnergy is: 7868.93pJ
+layer11's ic latency is: 9077.49ns
+layer11's ic readDynamicEnergy is: 246068pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+----------- ADC (or S/As and precharger for SRAM) readLatency is : 5032.17ns
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readLatency is : 732.521ns
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readLatency is : 26435.6ns
+----------- ADC (or S/As and precharger for SRAM) readDynamicEnergy is : 1.90332e+06pJ
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readDynamicEnergy is : 267494pJ
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readDynamicEnergy is : 475483pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+-------------------- Estimation of Layer 12 ----------------------
+layer12's readLatency is: 52593.3ns
+layer12's readDynamicEnergy is: 3.45696e+06pJ
+layer12's leakagePower is: 314.057uW
+layer12's leakageEnergy is: 170008pJ
+layer12's buffer latency is: 19081.8ns
+layer12's buffer readDynamicEnergy is: 8214.21pJ
+layer12's ic latency is: 18042.7ns
+layer12's ic readDynamicEnergy is: 221738pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+----------- ADC (or S/As and precharger for SRAM) readLatency is : 14788.4ns
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readLatency is : 629.022ns
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readLatency is : 37175.8ns
+----------- ADC (or S/As and precharger for SRAM) readDynamicEnergy is : 2.51916e+06pJ
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readDynamicEnergy is : 391368pJ
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readDynamicEnergy is : 546435pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+-------------------- Estimation of Layer 13 ----------------------
+layer13's readLatency is: 91411.1ns
+layer13's readDynamicEnergy is: 453412pJ
+layer13's leakagePower is: 40.7667uW
+layer13's leakageEnergy is: 22068.2pJ
+layer13's buffer latency is: 67611ns
+layer13's buffer readDynamicEnergy is: 1712.98pJ
+layer13's ic latency is: 17022.1ns
+layer13's ic readDynamicEnergy is: 78201.5pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+----------- ADC (or S/As and precharger for SRAM) readLatency is : 6572.63ns
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readLatency is : 128.372ns
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readLatency is : 84710.1ns
+----------- ADC (or S/As and precharger for SRAM) readDynamicEnergy is : 301715pJ
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readDynamicEnergy is : 38806.2pJ
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readDynamicEnergy is : 112891pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+-------------------- Estimation of Layer 14 ----------------------
+layer14's readLatency is: 52593.3ns
+layer14's readDynamicEnergy is: 2.94382e+06pJ
+layer14's leakagePower is: 314.057uW
+layer14's leakageEnergy is: 170008pJ
+layer14's buffer latency is: 19081.8ns
+layer14's buffer readDynamicEnergy is: 8214.21pJ
+layer14's ic latency is: 18042.7ns
+layer14's ic readDynamicEnergy is: 221738pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+----------- ADC (or S/As and precharger for SRAM) readLatency is : 14788.4ns
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readLatency is : 629.022ns
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readLatency is : 37175.8ns
+----------- ADC (or S/As and precharger for SRAM) readDynamicEnergy is : 2.01853e+06pJ
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readDynamicEnergy is : 391368pJ
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readDynamicEnergy is : 533919pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+-------------------- Estimation of Layer 15 ----------------------
+layer15's readLatency is: 52593.3ns
+layer15's readDynamicEnergy is: 2.61603e+06pJ
+layer15's leakagePower is: 314.057uW
+layer15's leakageEnergy is: 170008pJ
+layer15's buffer latency is: 19081.8ns
+layer15's buffer readDynamicEnergy is: 8214.21pJ
+layer15's ic latency is: 18042.7ns
+layer15's ic readDynamicEnergy is: 221738pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+----------- ADC (or S/As and precharger for SRAM) readLatency is : 14788.4ns
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readLatency is : 629.022ns
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readLatency is : 37175.8ns
+----------- ADC (or S/As and precharger for SRAM) readDynamicEnergy is : 1.69956e+06pJ
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readDynamicEnergy is : 391368pJ
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readDynamicEnergy is : 525104pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+-------------------- Estimation of Layer 16 ----------------------
+layer16's readLatency is: 13336.9ns
+layer16's readDynamicEnergy is: 1.34242e+06pJ
+layer16's leakagePower is: 678.565uW
+layer16's leakageEnergy is: 367328pJ
+layer16's buffer latency is: 4923.7ns
+layer16's buffer readDynamicEnergy is: 4055.25pJ
+layer16's ic latency is: 4520.29ns
+layer16's ic readDynamicEnergy is: 100473pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+----------- ADC (or S/As and precharger for SRAM) readLatency is : 3697.11ns
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readLatency is : 170.093ns
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readLatency is : 9469.66ns
+----------- ADC (or S/As and precharger for SRAM) readDynamicEnergy is : 892680pJ
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readDynamicEnergy is : 195684pJ
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readDynamicEnergy is : 254054pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+-------------------- Estimation of Layer 17 ----------------------
+layer17's readLatency is: 17492.4ns
+layer17's readDynamicEnergy is: 1.1804e+06pJ
+layer17's leakagePower is: 367.136uW
+layer17's leakageEnergy is: 198742pJ
+layer17's buffer latency is: 3801.52ns
+layer17's buffer readDynamicEnergy is: 2836.02pJ
+layer17's ic latency is: 7002.68ns
+layer17's ic readDynamicEnergy is: 58236pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+----------- ADC (or S/As and precharger for SRAM) readLatency is : 6572.63ns
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readLatency is : 102.697ns
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readLatency is : 10817ns
+----------- ADC (or S/As and precharger for SRAM) readDynamicEnergy is : 812660pJ
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readDynamicEnergy is : 173819pJ
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readDynamicEnergy is : 193921pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+-------------------- Estimation of Layer 18 ----------------------
+layer18's readLatency is: 35247.7ns
+layer18's readDynamicEnergy is: 321402pJ
+layer18's leakagePower is: 49.0679uW
+layer18's leakageEnergy is: 26561.9pJ
+layer18's buffer latency is: 20831.5ns
+layer18's buffer readDynamicEnergy is: 1111.06pJ
+layer18's ic latency is: 7753.65ns
+layer18's ic readDynamicEnergy is: 40460.7pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+----------- ADC (or S/As and precharger for SRAM) readLatency is : 6572.63ns
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readLatency is : 51.3487ns
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readLatency is : 28623.7ns
+----------- ADC (or S/As and precharger for SRAM) readDynamicEnergy is : 210936pJ
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readDynamicEnergy is : 38412.5pJ
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readDynamicEnergy is : 72054pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+-------------------- Estimation of Layer 19 ----------------------
+layer19's readLatency is: 17492.4ns
+layer19's readDynamicEnergy is: 1.02756e+06pJ
+layer19's leakagePower is: 367.136uW
+layer19's leakageEnergy is: 198742pJ
+layer19's buffer latency is: 3801.52ns
+layer19's buffer readDynamicEnergy is: 2836.02pJ
+layer19's ic latency is: 7002.68ns
+layer19's ic readDynamicEnergy is: 58236pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+----------- ADC (or S/As and precharger for SRAM) readLatency is : 6572.63ns
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readLatency is : 102.697ns
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readLatency is : 10817ns
+----------- ADC (or S/As and precharger for SRAM) readDynamicEnergy is : 662749pJ
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readDynamicEnergy is : 173819pJ
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readDynamicEnergy is : 190996pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+-------------------- Estimation of Layer 20 ----------------------
+layer20's readLatency is: 17338.3ns
+layer20's readDynamicEnergy is: 1.0651e+06pJ
+layer20's leakagePower is: 367.244uW
+layer20's leakageEnergy is: 198800pJ
+layer20's buffer latency is: 3698.82ns
+layer20's buffer readDynamicEnergy is: 2819.03pJ
+layer20's ic latency is: 6797.29ns
+layer20's ic readDynamicEnergy is: 53423.3pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+----------- ADC (or S/As and precharger for SRAM) readLatency is : 6572.63ns
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readLatency is : 102.697ns
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readLatency is : 10663ns
+----------- ADC (or S/As and precharger for SRAM) readDynamicEnergy is : 703732pJ
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readDynamicEnergy is : 173819pJ
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readDynamicEnergy is : 187545pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+-------------------- Estimation of Layer 21 ----------------------
+layer21's readLatency is: 1669.79ns
+layer21's readDynamicEnergy is: 2328.77pJ
+layer21's leakagePower is: 14.8278uW
+layer21's leakageEnergy is: 8026.76pJ
+layer21's buffer latency is: 933.503ns
+layer21's buffer readDynamicEnergy is: 13.587pJ
+layer21's ic latency is: 619.945ns
+layer21's ic readDynamicEnergy is: 595.662pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+----------- ADC (or S/As and precharger for SRAM) readLatency is : 102.697ns
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readLatency is : 0.802324ns
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readLatency is : 1566.29ns
+----------- ADC (or S/As and precharger for SRAM) readDynamicEnergy is : 1368.07pJ
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readDynamicEnergy is : 169.94pJ
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readDynamicEnergy is : 790.761pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+------------------------------ Summary --------------------------------
+
+ChipArea : 3.92868e+08um^2
+Chip total CIM array : 1.14738e+07um^2
+Total IC Area on chip (Global and Tile/PE local): 5.75775e+07um^2
+Total ADC (or S/As and precharger for SRAM) Area on chip : 8.70306e+07um^2
+Total Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) on chip : 7.20348e+07um^2
+Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, pooling and activation units) : 1.63824e+08um^2
+
+Chip clock period is: 12.8372ns
+Chip pipeline-system-clock-cycle (per image) is: 541331ns
+Chip pipeline-system readDynamicEnergy (per image) is: 7.87198e+07pJ
+Chip pipeline-system leakage Energy (per image) is: 3.42325e+06pJ
+Chip pipeline-system leakage Power (per image) is: 6323.77uW
+Chip pipeline-system buffer readLatency (per image) is: 425483ns
+Chip pipeline-system buffer readDynamicEnergy (per image) is: 235184pJ
+Chip pipeline-system ic readLatency (per image) is: 92021.3ns
+Chip pipeline-system ic readDynamicEnergy (per image) is: 8.68616e+06pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+----------- ADC (or S/As and precharger for SRAM) readLatency is : 23106.9ns
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readLatency is : 12003.6ns
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readLatency is : 517773ns
+----------- ADC (or S/As and precharger for SRAM) readDynamicEnergy is : 5.25706e+07pJ
+----------- Accumulation Circuits (subarray level: adders, shiftAdds; PE/Tile/Global level: accumulation units) readDynamicEnergy is : 9.70991e+06pJ
+----------- Other Peripheries (e.g. decoders, mux, switchmatrix, buffers, IC, pooling and activation units) readDynamicEnergy is : 1.64393e+07pJ
+
+************************ Breakdown of Latency and Dynamic Energy *************************
+
+
+----------------------------- Performance -------------------------------
+Energy Efficiency TOPS/W (Pipelined Process): 14.8515
+Throughput TOPS (Pipelined Process): 2.7494
+Throughput FPS (Pipelined Process): 1847.3
+Compute efficiency TOPS/mm^2 (Pipelined Process): 0.00699828
+-------------------------------------- Hardware Performance Done --------------------------------------
+
+------------------------------ Simulation Performance --------------------------------
+Total Run-time of NeuroSim: 165 seconds
+------------------------------ Simulation Performance --------------------------------

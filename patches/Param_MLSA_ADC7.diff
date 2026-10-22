@@ -1,0 +1,12 @@
+# Param_MLSA_ADC7.cpp: diff against stock Param.cpp at 9825ef4 (as built for this corner)
+--- a/NeuroSIM/Param.cpp
++++ b/NeuroSIM/Param.cpp
+@@ -257,7 +257,7 @@
+ 	numColMuxed=numColPerSynapse;
+ 	}
+ 	
+-	levelOutput = 256;                 // 12-bit ADC (Paper3 Blok2b)                  // 8-bit ADC (Paper3 Blok2b)                   // 5-bit ADC (Paper3 Blok2b)                   // # of levels of the multilevelSenseAmp output, should be in 2^N forms; e.g. 32 levels --> 5-bit ADC
++	levelOutput = 128;                 // 12-bit ADC (Paper3 Blok2b)                  // 8-bit ADC (Paper3 Blok2b)                   // 5-bit ADC (Paper3 Blok2b)                   // # of levels of the multilevelSenseAmp output, should be in 2^N forms; e.g. 32 levels --> 5-bit ADC
+ 	cellBit = 1;                        // precision of memory device 
+ 	// 1.4 update: dummy column sharing - how many senseamplfiers share one dummny columns?
+ 	// dummy column sharing should not be high, since it could change the column cap of the dummy column.

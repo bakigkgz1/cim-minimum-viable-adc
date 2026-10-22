@@ -40,7 +40,7 @@ Conductance read noise lives only in the `--hardware 1` conductance model. The r
 ## Repository layout
 
 ```
-results/full_rerun_v1/   measurement CSVs (one campaign, 25–26 Aug 2026) + later S1–S3 runs
+results/full_rerun_v1/   measurement CSVs: main campaign (25–26 Aug 2026) and S1–S3 runs (22 Oct 2026)
 logs/                    NeuroSIM hardware logs for each matched-levelOutput corner
 patches/                 Param.cpp changes (one-line levelOutput rule, per-corner diffs)
 scripts/colab/           Colab drivers that produced every CSV
@@ -63,9 +63,13 @@ models/                  checkpoints, if included in this release
 | Tables V, VII, Figs. 8–9 | `P6_hw_energy.csv` | `COLAB_FULL_RERUN.py` (P6) |
 | Table VI | `P6b_unmatched_demo.csv` | `COLAB_P6B_UNMATCHED.py` |
 | Table VIII | `P6_hw_energy.csv` | `analysis/arch_model.py` |
-| Table IX, Fig. 10 | `P8b_stuck_multiseed.csv` | `COLAB_OPTIONAL_LOCKS.py`, `COLAB_PRE_SUBMIT.py` |
-| Table X | `P7_multiseed.csv` | `COLAB_FULL_RERUN.py` (P7) |
-| ENOB, measured SAR, mixed precision | `S1_enob_noise.csv`, `S2_sar_hw.csv`, `S3_mixed_precision.csv` | `COLAB_STRENGTHEN.py` |
+| Table IX (measured SAR) | `S2_sar_hw.csv`, `P6_hw_energy.csv` | `COLAB_STRENGTHEN.py` (S2) |
+| Table X, Fig. 10 | `P8b_stuck_multiseed.csv` | `COLAB_OPTIONAL_LOCKS.py`, `COLAB_PRE_SUBMIT.py` |
+| Table XI | `P7_multiseed.csv` | `COLAB_FULL_RERUN.py` (P7) |
+| Table XII (conversion noise) | `S1_enob_noise.csv` (+ `S1b_noise_threshold.csv` if run) | `COLAB_STRENGTHEN.py` (S1), `COLAB_S1B_NOISE.py` |
+| Table XIII, Fig. 11 (per-layer allocation) | `S3_mixed_precision.csv`, `P2b_clip_by_layer.csv` | `COLAB_STRENGTHEN.py` (S3) |
+
+The S1–S3 runs used a newer Colab runtime (Python 3.13, CUDA 13.0) with the same NeuroSim commit and checkpoints. On that runtime NeuroSim's `pytorch-quantization/setup.py` no longer installs, so `COLAB_STRENGTHEN.py` compiles its CUDA extension with `torch.utils.cpp_extension.load` instead.
 
 The 12-bit hardware point (1.17 TOPS/W, 3.04×10⁹ µm²) comes from an earlier matched sweep with the same configuration and is not in `P6_hw_energy.csv`.
 
