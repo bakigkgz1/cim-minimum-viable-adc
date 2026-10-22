@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite it as below."
+title: "Minimum-Viable ADC Resolution for Subarray Parallel Read in Analog Compute-in-Memory: code and data"
+authors:
+  - family-names: "Gökgöz"
+    given-names: "Baki"
+    affiliation: "Department of Computer Technologies, Torul Vocational School, Gümüşhane University"
+    orcid: "https://orcid.org/0000-0001-8166-6282"
+version: "1.0.0"
+date-released: "2026-10-22"
+license: MIT
+repository-code: "https://github.com/bakigkgz1/cim-minimum-viable-adc"
+keywords:
+  - analog compute-in-memory
+  - ADC resolution
+  - parallel read
+  - NeuroSim

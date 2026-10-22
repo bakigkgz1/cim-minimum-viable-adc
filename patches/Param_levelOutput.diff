@@ -1,0 +1,28 @@
+# Stock NeuroSim 2DInferenceV1.5-dev @ 9825ef4
+# File: NeuroSIM/Param.cpp  (constructor, ~line 260)
+#
+# The comment already says levels should be 2^N matching an N-bit ADC.
+# The assignment does not: it is always 128 (ADC=7 costing), independent of
+# Python --adc_precision (which never reaches NeuroSIM/main argv).
+#
+# This paper's hardware tables use a per-corner rewrite:
+#   levelOutput = 2 ** adc
+# then `make` in NeuroSIM/. See COLAB_FULL_RERUN.py::set_lo().
+#
+# Proposed upstream (illustrative; wire ADC bits through hook.py argv):
+#   levelOutput = 1 << adcBits;
+
+--- a/NeuroSIM/Param.cpp
++++ b/NeuroSIM/Param.cpp
+@@ -257,7 +257,10 @@
+ 	if ((conventionalSequential == 1 || conventionalSequential == 3 || conventionalSequential == 5 ) && (memcelltype==1))
+ 	{
+ 	numColMuxed=numColPerSynapse;
+ 	}
+ 	
+-	levelOutput = 128;                   // # of levels of the multilevelSenseAmp output, should be in 2^N forms; e.g. 32 levels --> 5-bit ADC
++	// MATCHED-LO (this paper): set to 2^ADC before each hardware corner and rebuild.
++	// Stock upstream is hardcoded 128 (ADC=7), so ADC=5/8/12 PPA is not comparable.
++	// Example for ADC=5; COLAB_FULL_RERUN.set_lo(adc) rewrites this line.
++	levelOutput = 32;                    // # of levels of the multilevelSenseAmp output, should be in 2^N forms; e.g. 32 levels --> 5-bit ADC
+ 	cellBit = 1;                        // precision of memory device
