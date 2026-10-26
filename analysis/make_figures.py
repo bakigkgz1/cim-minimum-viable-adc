@@ -28,7 +28,7 @@ x=np.arange(len(pr))
 a.axvspan(-0.5,3.5,color=GRN,alpha=0.08,lw=0); a.axvspan(3.5,5.5,color='#d9a227',alpha=0.12,lw=0); a.axvspan(5.5,7.5,color=RED,alpha=0.10,lw=0)
 for xx,t,c in [(1.5,'accuracy-safe',GRN),(4.5,'soft loss','#8a6a10'),(6.5,'collapse',RED)]: a.text(xx,99,t,ha='center',va='top',color=c)
 a.axhline(FP10,ls=':',color=INK,lw=1.2)
-a.plot(x,acc5,'-o',color=RED,lw=2,ms=5,label='N = 256 grid (Table VI)')
+a.plot(x,acc5,'-o',color=RED,lw=2,ms=5,label='N = 256 clipping grid')
 for p,v in full.items():
     i=pr.index(p); a.plot(i,v,'o',mfc='none',mec=RED,mew=2,ms=11)
     a.annotate(f'{v:.2f}',(i,v),xytext=(0,-17) if p==64 else (14,8),textcoords='offset points',ha='center',color=RED,fontsize=9)
@@ -39,7 +39,7 @@ b.bar(range(4),bv,color=cols,edgecolor=INK,lw=0.6,width=0.62)
 for i,v in enumerate(bv): b.text(i,v+1.5,f'{v:.2f}',ha='center',fontsize=9,fontweight='bold' if i==1 else None)
 b.axhline(FP10,ls=':',color=INK,lw=1.2); b.set_xticks(range(4),bs); b.set_ylim(0,104)
 b.set_xlabel('ADC resolution, b (bit)'); b.set_title('(b) PR = 128 across ADC resolution',loc='left',fontsize=10)
-h=[Line2D([],[],color=RED,marker='o',lw=2,label='N = 256 grid (Table VI)'),Line2D([],[],ls='',marker='o',mfc='none',mec=RED,mew=2,ms=9,label='full 10 000-image test (Table I)'),
+h=[Line2D([],[],color=RED,marker='o',lw=2,label='N = 256 clipping grid'),Line2D([],[],ls='',marker='o',mfc='none',mec=RED,mew=2,ms=9,label='full 10 000-image test'),
    Patch(fc=GRN,ec=INK,label='minimum-viable resolution'),Line2D([],[],ls=':',color=INK,label=f'floating point ({FP10:.2f}%)')]
 f.legend(handles=h,loc='lower center',ncol=4,frameon=False,bbox_to_anchor=(0.5,-0.06),fontsize=9)
 f.tight_layout(rect=(0,0.06,1,1)); save(f,'fig2.png')

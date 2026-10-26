@@ -1,17 +1,19 @@
 cff-version: 1.2.0
 message: "If you use this code or data, please cite it as below."
-title: "Minimum-Viable ADC Resolution for Subarray Parallel Read in Analog Compute-in-Memory: code and data"
+title: "A Clipping-Tail Rule for Sizing the ADC in Parallel-Read Analog Compute-in-Memory Accelerators: code and data"
 authors:
   - family-names: "Gökgöz"
     given-names: "Baki"
     affiliation: "Department of Computer Technologies, Torul Vocational School, Gümüşhane University"
     orcid: "https://orcid.org/0000-0001-8166-6282"
-version: "1.0.0"
-date-released: "2026-10-22"
+version: "1.1.0"
+date-released: "2026-10-27"
 license: MIT
+doi: "10.5281/zenodo.23573122"
 repository-code: "https://github.com/bakigkgz1/cim-minimum-viable-adc"
 keywords:
   - analog compute-in-memory
   - ADC resolution
   - parallel read
   - NeuroSim
+  - partial-sum clipping
