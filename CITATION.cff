@@ -1,15 +1,15 @@
 cff-version: 1.2.0
 message: "If you use this code or data, please cite it as below."
-title: "A Clipping-Tail Rule for Sizing the ADC in Parallel-Read Analog Compute-in-Memory Accelerators: code and data"
+title: "Calibrating a Clipping-Tail Criterion for ADC Sizing in Parallel-Read Analog Compute-in-Memory Accelerators: code and data"
 authors:
   - family-names: "Gökgöz"
     given-names: "Baki"
     affiliation: "Department of Computer Technologies, Torul Vocational School, Gümüşhane University"
     orcid: "https://orcid.org/0000-0001-8166-6282"
-version: "1.1.0"
-date-released: "2026-10-27"
+version: "1.2.0"
+date-released: "2026-10-28"
 license: MIT
-doi: "10.5281/zenodo.23573122"
+doi: "10.5281/zenodo.23573121"
 repository-code: "https://github.com/bakigkgz1/cim-minimum-viable-adc"
 keywords:
   - analog compute-in-memory
