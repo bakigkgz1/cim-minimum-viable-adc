@@ -1,0 +1,9 @@
+ts,key,phase,model,dataset,ckpt,sub_array,pr,bits,exempt_dummy,sigma_lsb,n_images,acc,altered_frac,dummy_altered_frac,code_change_frac,seconds,pred_file
+2026-10-29T21:32:29.853658+00:00,V|vgg8|cifar100|v100|sub128|pr128|b8|ex0|n0.0|nb-1,V,vgg8,cifar100,v100,128,128,8,0,0.0,10000,61.75,0.000e+00,0.000e+00,0.000e+00,1139.9,V_vgg8_cifar100_v100_sub128_pr128_b8_ex0_n0.0_nb-1.npy
+2026-10-29T21:53:31.147465+00:00,V|vgg8|cifar100|v100|sub128|pr128|b6|ex1|n0.0|nb-1,V,vgg8,cifar100,v100,128,128,6,1,0.0,10000,61.82,4.503e-05,9.890e-03,0.000e+00,1261.3,V_vgg8_cifar100_v100_sub128_pr128_b6_ex1_n0.0_nb-1.npy
+2026-10-29T22:12:31.096499+00:00,V|vgg8|cifar100|v100|sub128|pr128|b7|ex0|n0.0|nb-1,V,vgg8,cifar100,v100,128,128,7,0,0.0,10000,61.75,0.000e+00,0.000e+00,0.000e+00,1139.9,V_vgg8_cifar100_v100_sub128_pr128_b7_ex0_n0.0_nb-1.npy
+2026-10-29T22:43:50.676980+00:00,V|vgg8|cifar100|v100|sub128|pr96|b5|ex1|n0.0|nb-1,V,vgg8,cifar100,v100,128,96,5,1,0.0,10000,61.55,2.898e-03,8.845e-02,0.000e+00,1572.5,V_vgg8_cifar100_v100_sub128_pr96_b5_ex1_n0.0_nb-1.npy
+2026-10-29T23:10:01.519796+00:00,V|vgg8|cifar100|v100|sub128|pr96|b6|ex1|n0.0|nb-1,V,vgg8,cifar100,v100,128,96,6,1,0.0,10000,61.75,1.788e-06,4.035e-04,0.000e+00,1570.8,V_vgg8_cifar100_v100_sub128_pr96_b6_ex1_n0.0_nb-1.npy
+2026-10-29T23:54:16.733238+00:00,V|vgg8|cifar100|v100|sub128|pr64|b5|ex1|n0.0|nb-1,V,vgg8,cifar100,v100,128,64,5,1,0.0,10000,61.73,1.140e-04,1.687e-02,0.000e+00,2187.0,V_vgg8_cifar100_v100_sub128_pr64_b5_ex1_n0.0_nb-1.npy
+2026-10-30T00:51:12.375027+00:00,R|resnet18|cifar10|orig|sub128|pr48|b4|ex1|n0.0|nb-1,R,resnet18,cifar10,orig,128,48,4,1,0.0,10000,89.86,5.795e-04,2.348e-02,0.000e+00,2768.6,R_resnet18_cifar10_orig_sub128_pr48_b4_ex1_n0.0_nb-1.npy
+2026-10-30T01:35:09.459023+00:00,R|resnet18|cifar10|orig|sub128|pr64|b4|ex1|n0.0|nb-1,R,resnet18,cifar10,orig,128,64,4,1,0.0,10000,89.43,2.365e-03,5.694e-02,0.000e+00,2164.4,R_resnet18_cifar10_orig_sub128_pr64_b4_ex1_n0.0_nb-1.npy

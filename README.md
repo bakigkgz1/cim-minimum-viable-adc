@@ -1,24 +1,26 @@
-# Calibrating a Clipping-Tail Criterion for ADC Sizing in Parallel-Read Analog Compute-in-Memory
+# Unit-Column Clipping Limits the ADC Resolution in Offset-Encoded Analog Compute-in-Memory
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23573121.svg)](https://doi.org/10.5281/zenodo.23573121)
 
 Code, measurement files and analysis scripts for the manuscript
 
-> B. Gökgöz, *Calibrating a Clipping-Tail Criterion for ADC Sizing in Parallel-Read Analog Compute-in-Memory Accelerators* (under review).
+> B. Gökgöz, *Unit-Column Clipping Limits the ADC Resolution in Offset-Encoded Analog Compute-in-Memory* (under review).
 
-Version 1.2.0 adds the reviewer-driven runs S6 and S7: a textbook 2^b-code converter, 41 operating points (three network–dataset pairs, three quantization seeds) with per-image predictions for paired (McNemar) tests, open-loop histograms, layer-resolved feedback and single-layer clipping, conductance read noise, coarse-LSB runs with three rounding schemes and symmetric code noise. Earlier versions accompanied previous drafts of the manuscript.
+Version 1.3.0 adds the runs S8–S13 behind the current manuscript: clipping split into data columns and offset terms, exact (digital) offset removal, 256-row arrays, the unit-column/offset-row ablation, layer-resolved feedback with exact offset, hardware costs of the digital-offset design, two independently trained ResNet18 checkpoints, VGG8 on CIFAR-100 as a held-out fourth pair, code noise with exact offset, static and dynamic converter errors, and a differential (W⁺/W⁻) mapping with its first-order cost. Earlier versions (v1.0–v1.2) accompanied previous drafts that calibrated the clipping budget with the analog unit column; their files are kept and are still used in the Supplementary Material.
 
-Every number in the manuscript comes from the CSV files in `results/`. The scripts in `scripts/colab/` produced them, and the scripts in `analysis/` rebuild the data figures and the architecture table from them.
+Every number in the manuscript comes from the files in `results/`. The scripts in `scripts/colab/` produced them; `analysis/unit_column/run_all.py` rebuilds Figs. 1–5 and Tables 2–4 and S3–S4 from them, and `analysis/unit_column/s12.py` rebuilds Table 5 and Tables S17–S18.
 
-## What the study does
+## What the study shows
 
-ResNet18 (CIFAR-10, CIFAR-100) and a VGG8 control are evaluated on DNN+NeuroSim V1.5 over a joint sweep of subarray parallel read (PR ∈ {16 … 128} rows) and ADC resolution (*b* ∈ {5, 6, 7, 8, 12} bits). The main findings are:
+NeuroSim shifts inputs and weights to unsigned values and removes the shift with an offset row and a **unit column** whose cells all conduct. The unit column's count is the number of active inputs, which bounds every data-column partial sum of the same read.
 
-- **Measured budget.** Every point whose loss is conclusively within 0.5 pp (95% paired CI) has an open-loop clipped fraction ≤ 7.4×10⁻⁶, every conclusively lossy point ≥ 1.4×10⁻⁵; τ = 10⁻⁵, set on ResNet18/CIFAR-10, classifies all 36 conclusive points of 41 and follows seed-to-seed changes.
-- **Feedback.** Clipping raises the next layer's mean partial sum by 8–11% and compounds with depth; the measured altered fraction reaches up to 1600× the open-loop value.
-- **Closed forms.** A per-layer beta-binomial (mean, variance) never under-sizes; the independent-bit binomial under-sizes all 23 configurations. Full-range sizing ⌈log₂(PR+1)⌉ asks for 8 bits at PR = 128 where 6 suffice.
-- **One alteration budget.** Code noise is tolerated at 0.11 LSB rms (code-change probability 5.5×10⁻⁶) but not 0.14 (3.6×10⁻⁴); a 2- or 4-cell LSB collapses accuracy with any rounding; read noise up to 3% does not move the boundary.
-- **Cost.** With `levelOutput = 2^b`, six bits at PR = 128 raises efficiency 1.35× (flash-type MLSA) and 1.10× (SAR) over practical full-range sizing (7 bits).
+- **The unit column clips first.** Near the accuracy boundary the offset terms, under 1% of conversions, clip 35–8500× more often per conversion than a data column. Converting only the unit column exactly removes the loss; converting only the offset row (zero after a ReLU) changes no prediction.
+- **Feedback.** With the analog unit column, clipping raises later layers' mean partial sums by up to 51%; with exact offset terms every layer clips its open-loop share (< 0.2% shift).
+- **One bit saved.** With exact offset terms, 5 bits serve PR = 128 (128-row arrays) and 6 bits PR = 256 (256-row arrays) on CIFAR-10, over three calibration seeds and three trained ResNet18 checkpoints; VGG8/CIFAR-100 needs 6 instead of 7 bits at PR = 128.
+- **Cost.** A popcount (NeuroSim adder-tree model: 0.27 pJ, 343 µm² at PR = 128) adds ≈ 0.2% chip energy; efficiency rises 1.22–1.35× (flash-type MLSA) and 1.08–1.13× (SAR).
+- **Converter errors.** With static column offsets, code-transition errors and thermal noise of 0.075 LSB per source the saved bit holds; at 0.10 LSB every design fails, the analog unit column hardest (−61 pp against −13 to −17 pp).
+- **Differential baseline.** W⁺/W⁻ arrays without a unit column need 4 bits at PR = 128 and 5 at PR = 256, but convert twice the columns; first-order estimate: at most 0.81–0.90 of the efficiency of offset encoding with exact offset terms.
+- **Residual budget.** With the offset exact, tolerable data-column clipping depends on network and task (conclusively safe up to 1.9×10⁻³ for VGG8 and 5.8×10⁻⁴ for ResNet18 on CIFAR-10; ResNet18 on CIFAR-100 loses accuracy from 1.3×10⁻⁴). With the analog unit column, a 10⁻⁵ budget on all conversions classifies every conclusive point, including the held-out pair.
 
 ## Simulator version
 
@@ -27,79 +29,54 @@ ResNet18 (CIFAR-10, CIFAR-100) and a VGG8 control are evaluated on DNN+NeuroSim 
 | Repository | https://github.com/neurosim/NeuroSim |
 | Branch | `2DInferenceV1.5-dev` |
 | Commit | `9825ef40bf14d12a72c99d8e32ff8c499aeddf24` |
-| Converter model | multilevel sense amplifier (`SARADC = false`), 8 columns per converter |
 
-NeuroSim is third-party code and is **not** redistributed here. Clone it at the commit above and apply the patches in `patches/`.
+NeuroSim is third-party code and is **not** redistributed here. Each Colab driver clones it at the commit above and patches it at run time (converter clamp `[0, 2^b − 1]`, exact-offset hook, converter-error model, differential `simulate_array`, `levelOutput = 2^b`, VGG8 on CIFAR-100).
 
-## The `levelOutput` correction
+## Datapath conventions
 
-`NeuroSIM/Param.cpp` (line 260 at the commit above) sets `levelOutput = 128` at build time. The Python flag `--adc_precision` never reaches the C++ estimator; only PR is passed on its command line. Every resolution is therefore costed as a 7-bit converter unless the line is rewritten and NeuroSIM is rebuilt.
-
-All hardware numbers in the paper use `levelOutput = 2^b`, set by `set_lo()` in `scripts/colab/COLAB_FULL_RERUN.py`. `patches/` holds the one-line change and, where available, the exact per-resolution diffs that were built. `docs/NEUROSIM_LEVELOUTPUT_ISSUE.md` is the upstream report.
-
-## Accuracy path vs hardware path
-
-Accuracy runs use NeuroSim's digital mode (`--hardware 0`). Each layer is still split into 1-bit input cycles, 1-bit weight cells and PR-row partitions, and every partition sum passes the ADC clamp `[0, 2^b]`; the sum itself is an exact integer. Hardware runs use `--hardware 1 --ppa 1`.
-
-Conductance read noise lives only in the `--hardware 1` conductance model. The read-noise rows of `P8_variation.csv` are therefore no-ops and are not reported as a robustness result (see `docs/PLUMBING_READ_NOISE.md`). Stuck-at faults act on both paths.
+- **Accuracy path:** `--hardware 0`; exact integer partition sums pass a hook in front of every converter (`_adc_quant`). The hook converts with `Q(y) = min(max(y, 0), 2^b − 1)` and can pass the offset row/unit column through unaltered (`exempt` = 1 both, 2 offset row, 3 unit column).
+- **Open loop:** one unclipped pass on 512 training images (four batches of 128), histograms split into `signal` (data columns) and `offset` (offset row + unit column) rows in `S*_openloop.csv`.
+- **Hardware path:** `--hardware 1 --ppa 1`, `levelOutput = 2^b`, MLSA or SAR (`SARADC`), with the offset terms converted exactly for the digital-offset rows (`S9_hw.csv`, tag `S9_digoff_*`).
 
 ## Repository layout
 
 ```
-results/full_rerun_v1/   measurement CSVs: main campaign (Aug 2026), S1–S5 and S6 (Oct 2026); S6_preds/ per-image predictions
-logs/                    NeuroSIM hardware logs for each matched-levelOutput corner
-patches/                 Param.cpp changes (one-line levelOutput rule, per-corner diffs)
-scripts/colab/           Colab drivers that produced every CSV
-scripts/train/           checkpoint training and early grid scripts
-analysis/                figure and architecture-model scripts (read results/ only)
-docs/                    setup notes, upstream issue draft, read-noise plumbing note
+results/full_rerun_v1/   measurement CSVs of all campaigns; S*_preds/ per-image predictions for paired tests
+logs/                    NeuroSIM hardware logs
+patches/                 Param.cpp changes (levelOutput rule, per-corner diffs)
+scripts/colab/           Colab drivers that produced every CSV (COLAB_S8 … COLAB_S13 for this version)
+scripts/train/           checkpoint training scripts
+analysis/unit_column/    analysis for the current manuscript (run_all.py)
+analysis/popcount/       NeuroSim adder-tree cost probe for the popcount
+analysis/*.py            analysis of earlier versions (Supplementary Material S1–S2)
+docs/                    setup notes, upstream issue draft
 models/                  checkpoints, if included in this release
 ```
 
 ## Where each result comes from
 
-Numbering follows the current manuscript (v1.2.0). Supplementary items are prefixed S.
-
-| Manuscript item | File(s) | Script |
+| Manuscript item | Files | Driver |
 |---|---|---|
-| Fig. 2 (accuracy vs PR) | `S6_runs.csv`, `S6_preds/*.npy` | `COLAB_S6_REVIEW_RUNS.py`, `analysis/s6_review_analysis.py` |
-| Table II, Figs. 3–4 (41-point validation, seeds, feedback) | `S6_*`, `S7_runs.csv`, `S7_openloop.csv`, `S7_layers.csv`, `S7_preds/*.npy` | `COLAB_S7_REVIEW2_RUNS.py`, `analysis/s7_review2_analysis.py` |
-| Table III, Fig. 5 (sizing chart, closed forms) | `S6_openloop.csv`, `S6_hist.csv`, `S5_partial_sum_hist.csv` | `COLAB_S5_HISTOGRAMS.py`, `COLAB_S6_REVIEW_RUNS.py`, `analysis/s6_review_analysis.py` |
-| Table IV, Fig. 6, Fig. S2 (hardware) | `P6_hw_energy.csv`, `S2_sar_hw.csv` | `COLAB_FULL_RERUN.py` (P6), `COLAB_STRENGTHEN.py` (S2) |
-| Table V (analytic cost models) | `P6_hw_energy.csv` | `analysis/arch_model.py` |
-| Table VI (measured SAR) | `S2_sar_hw.csv` | `COLAB_STRENGTHEN.py` (S2) |
-| Table VII (code noise) | `S6_runs.csv` (phase D) | `COLAB_S6_REVIEW_RUNS.py` |
-| Table VIII (range scaling) | `S6_runs.csv` (phase C) | `COLAB_S6_REVIEW_RUNS.py` |
-| Section 4.7 (read noise) | `S7_runs.csv` (phase N) | `COLAB_S7_REVIEW2_RUNS.py` |
-| Tables S1–S3, Fig. S1 (earlier campaign, simulator clamp) | `P2_clip_grid.csv`, `P3_c10_full_acc.csv`, `P4_c100_full_acc.csv`, `P5*_vgg8*.csv`, `diag_pred_hist_*.csv` | `COLAB_FULL_RERUN.py`, `COLAB_DUMP_HIST.py` |
-| Table S4 (unmatched levelOutput) | `P6b_unmatched_demo.csv` | `COLAB_P6B_UNMATCHED.py` |
-| Figs. S3–S4, Table S5 (per-layer clipping, allocation) | `P2b_clip_by_layer.csv`, `S3_mixed_precision.csv` | `COLAB_LAYER_CLIP.py`, `COLAB_STRENGTHEN.py` (S3) |
-| Tables S6–S7, Fig. S5 (stuck-at, seeds) | `P8b_stuck_multiseed.csv`, `P7_multiseed.csv` | `COLAB_OPTIONAL_LOCKS.py`, `COLAB_FULL_RERUN.py` (P7) |
-| Table S8 (fine noise sweep) | `S1_enob_noise.csv`, `S1b_noise_threshold.csv` | `COLAB_STRENGTHEN.py` (S1), `COLAB_S1B_NOISE.py` |
-
-`analysis/s6_review_analysis.py` writes Figs. 2, 5 and 6 and prints Table III; `analysis/s7_review2_analysis.py` prints Table II and writes Figs. 3–4; `analysis/sizing_rule.py` reproduces the earlier S5-only analysis.
-
-The S1–S3 runs used a newer Colab runtime (Python 3.13, CUDA 13.0) with the same NeuroSim commit and checkpoints. On that runtime NeuroSim's `pytorch-quantization/setup.py` no longer installs, so `COLAB_STRENGTHEN.py` compiles its CUDA extension with `torch.utils.cpp_extension.load` instead.
-
-The 12-bit hardware point (1.17 TOPS/W, 3.04×10⁹ µm²) comes from an earlier matched sweep with the same configuration and is not in `P6_hw_energy.csv`.
+| Table 2, Fig. 4a (clipping of data columns vs offset terms) | `S8_openloop.csv`, `S9_openloop.csv`, `S10_openloop.csv`, `S11_openloop.csv` | `COLAB_S8_EXTENSION.py` … `COLAB_S11_FINAL.py` |
+| Fig. 2, Sections 4.3 (exact offset, ablation, 256-row arrays, seeds) | `S8_runs.csv`, `S9_runs.csv`, `S8_preds/`, `S9_preds/` | `COLAB_S8_EXTENSION.py`, `COLAB_S9_DIGITAL_OFFSET.py` |
+| Independent checkpoints, VGG8/CIFAR-100, denser CIFAR-100 points, code noise with exact offset | `S10_*`, `S11_*`, `S10_train_log.csv` | `COLAB_S10_STRENGTHEN.py`, `COLAB_S11_FINAL.py` |
+| Fig. 3 (feedback) | `S7_layers.csv`, `S8_layers.csv` | `COLAB_S7_REVIEW2_RUNS.py`, `COLAB_S8_EXTENSION.py` |
+| Fig. 4b, Table 3 (budgets, minimum resolution) | all of the above + `S6_*`, `S7_*` | — |
+| Table 4, Fig. 5 (hardware) | `S8_hw.csv`, `S9_hw.csv` | `COLAB_S8_EXTENSION.py`, `COLAB_S9_DIGITAL_OFFSET.py` |
+| Popcount cost (Section 4.6) | — | `analysis/popcount/popcount.cpp` |
+| Table 5, Section 4.8, Tables S17–S18 (converter errors, differential mapping and its cost) | `S12_runs.csv`, `S12_openloop.csv`, `S12_hist.csv`, `S12_preds/`, `S13_hw.csv` | `COLAB_S12_ADC_DIFF.py`, `COLAB_S13_DIFF_COST.py`; analysis `analysis/unit_column/s12.py` |
+| Supplementary S1–S2 (calibration with the analog unit column, closed forms) | `S6_*`, `S7_*`, `S5_partial_sum_hist.csv` | `COLAB_S6_REVIEW_RUNS.py`, `COLAB_S7_REVIEW2_RUNS.py` |
+| Supplementary S4–S9 (noise, coarse LSB, cost models, earlier campaign) | `S6_runs.csv`, `S8_runs.csv` (phase F), `S10_runs.csv` (phase N), `P*`, `S1*`–`S3*` | see v1.2.0 README in the release history |
 
 ## Reproducing
 
-1. **Set up Colab.** Use a T4 GPU and follow `docs/COLAB_SETUP.md`: clone NeuroSim at the commit above, run `pip install -e pytorch-quantization`, and put the checkpoints in `models/`.
-2. **Copy the drivers.** Put `scripts/colab/*.py` in `MyDrive/NeuroSim15v_paper3/`.
-3. **Run the main campaign.** `%run .../COLAB_FULL_RERUN.py` covers phases P1–P8 (~12–20 h on a T4, resume-safe), then `COLAB_PRE_SUBMIT.py`.
-4. **Rebuild the outputs.**
-   - `python analysis/make_figures.py results/full_rerun_v1 figures`
-   - `python analysis/arch_model.py results/full_rerun_v1`
-   - `python analysis/sizing_rule.py results/full_rerun_v1 figures`
-   - `python analysis/s6_review_analysis.py results/full_rerun_v1 figures`
-   - `python analysis/s7_review2_analysis.py results/full_rerun_v1 figures`
-
-The figure script needs only `matplotlib` and `numpy`.
+1. **Accuracy and open-loop runs.** In Colab with a T4 GPU, run the drivers in `scripts/colab/` (each is one cell, resume-safe; run times are stated in their headers). They write to `MyDrive/NeuroSim15v_paper3/full_rerun_v1/`.
+2. **Analysis.** From the repository root:
+   `python analysis/unit_column/run_all.py` (environment variables `P3_RESULTS` and `P3_OUT` override `results/full_rerun_v1` and `figures`). It needs `numpy` and `matplotlib` and writes the figures, `tables.json` (Tables 2–4, S3–S4) and `points.json` (all paired statistics).
 
 ## Citation
 
-See `CITATION.cff`. Please cite the article once it is published; until then, cite this repository.
+See `CITATION.cff`. Please cite the article once it is published; until then, cite this repository (concept DOI above).
 
 ## License
 

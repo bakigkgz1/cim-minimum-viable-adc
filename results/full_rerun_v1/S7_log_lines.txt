@@ -1,0 +1,56 @@
+S7 P resnet18/cifar10 PR24 4b seed1234 hw0 rn0.0: acc 89.61 (n=10000) altered 1.239e-05 [4487.2s]
+S7 Q resnet18/cifar10 PR128 5b seed1234 hw0 rn0.0: acc 10.7422 (n=2048) altered 5.821e-01 [251.9s]
+S7 Q vgg8/cifar10 PR128 5b seed1234 hw0 rn0.0: acc 10.6934 (n=2048) altered 2.131e-01 [236.0s]
+S7 Q resnet18/cifar100 PR128 5b seed1234 hw0 rn0.0: acc 0.9766 (n=2048) altered 6.092e-01 [251.9s]
+S7 N resnet18/cifar10 PR64 5b seed1234 hw1 rn0.0: acc 90.332 (n=1024) altered 7.079e-06 [285.4s]
+S7 N resnet18/cifar10 PR64 5b seed1234 hw1 rn0.005: acc 90.332 (n=1024) altered 7.079e-06 [289.2s]
+S7 N resnet18/cifar10 PR64 5b seed1234 hw1 rn0.01: acc 90.332 (n=1024) altered 7.079e-06 [289.2s]
+S7 N resnet18/cifar10 PR64 5b seed1234 hw1 rn0.02: acc 90.332 (n=1024) altered 7.079e-06 [289.3s]
+S7 N resnet18/cifar10 PR64 5b seed1234 hw1 rn0.03: acc 90.4297 (n=1024) altered 7.101e-06 [289.3s]
+S7 N resnet18/cifar10 PR72 5b seed1234 hw1 rn0.0: acc 90.332 (n=1024) altered 5.829e-05 [260.7s]
+S7 N resnet18/cifar10 PR72 5b seed1234 hw1 rn0.005: acc 90.332 (n=1024) altered 5.829e-05 [264.7s]
+S7 N resnet18/cifar10 PR72 5b seed1234 hw1 rn0.01: acc 90.332 (n=1024) altered 5.829e-05 [264.7s]
+S7 N resnet18/cifar10 PR72 5b seed1234 hw1 rn0.02: acc 90.4297 (n=1024) altered 5.829e-05 [264.6s]
+S7 N resnet18/cifar10 PR72 5b seed1234 hw1 rn0.03: acc 90.625 (n=1024) altered 5.598e-05 [264.8s]
+S7 N resnet18/cifar10 PR128 6b seed1234 hw1 rn0.0: acc 91.4062 (n=1024) altered 3.436e-07 [179.8s]
+S7 N resnet18/cifar10 PR128 6b seed1234 hw1 rn0.005: acc 91.4062 (n=1024) altered 3.436e-07 [183.7s]
+S7 N resnet18/cifar10 PR128 6b seed1234 hw1 rn0.01: acc 91.4062 (n=1024) altered 3.436e-07 [183.7s]
+S7 N resnet18/cifar10 PR128 6b seed1234 hw1 rn0.02: acc 91.5039 (n=1024) altered 3.435e-07 [183.7s]
+S7 N resnet18/cifar10 PR128 6b seed1234 hw1 rn0.03: acc 91.5039 (n=1024) altered 3.342e-07 [183.7s]
+S7 N resnet18/cifar10 PR128 8b seed1234 hw1 rn0.0: acc 91.4062 (n=1024) altered 0.000e+00 [179.9s]
+S7 N resnet18/cifar10 PR128 8b seed1234 hw1 rn0.005: acc 91.4062 (n=1024) altered 0.000e+00 [183.7s]
+S7 N resnet18/cifar10 PR128 8b seed1234 hw1 rn0.01: acc 91.4062 (n=1024) altered 0.000e+00 [183.7s]
+S7 N resnet18/cifar10 PR128 8b seed1234 hw1 rn0.02: acc 91.5039 (n=1024) altered 0.000e+00 [183.7s]
+S7 N resnet18/cifar10 PR128 8b seed1234 hw1 rn0.03: acc 91.4062 (n=1024) altered 0.000e+00 [183.7s]
+open-loop resnet18|cifar10|pr128|seed2345 3b 2.02e-01, 4b 4.41e-02, 5b 9.15e-04, 6b 1.34e-06, 7b 0.00e+00
+S7 S resnet18/cifar10 PR128 8b seed2345 hw0 rn0.0: acc 89.7656 (n=5120) altered 0.000e+00 [620.3s]
+open-loop resnet18|cifar10|pr64|seed2345 3b 6.51e-02, 4b 3.32e-03, 5b 1.29e-05, 6b 0.00e+00, 7b 0.00e+00
+S7 S resnet18/cifar10 PR64 5b seed2345 hw0 rn0.0: acc 89.2188 (n=5120) altered 1.637e-05 [964.0s]
+open-loop resnet18|cifar10|pr72|seed2345 3b 8.36e-02, 4b 5.54e-03, 5b 2.91e-05, 6b 0.00e+00, 7b 0.00e+00
+S7 S resnet18/cifar10 PR72 5b seed2345 hw0 rn0.0: acc 88.1836 (n=5120) altered 1.602e-04 [883.3s]
+open-loop vgg8|cifar10|pr128|seed2345 3b 1.50e-01, 4b 2.88e-02, 5b 6.36e-04, 6b 3.46e-07, 7b 0.00e+00
+S7 S vgg8/cifar10 PR128 8b seed2345 hw0 rn0.0: acc 89.8828 (n=5120) altered 0.000e+00 [581.4s]
+open-loop vgg8|cifar10|pr64|seed2345 3b 4.31e-02, 4b 2.14e-03, 5b 5.61e-06, 6b 0.00e+00, 7b 0.00e+00
+S7 S vgg8/cifar10 PR64 5b seed2345 hw0 rn0.0: acc 89.6484 (n=5120) altered 7.328e-06 [986.1s]
+open-loop vgg8|cifar10|pr72|seed2345 3b 5.63e-02, 4b 3.69e-03, 5b 2.13e-05, 6b 0.00e+00, 7b 0.00e+00
+S7 S vgg8/cifar10 PR72 5b seed2345 hw0 rn0.0: acc 88.4961 (n=5120) altered 2.646e-05 [894.8s]
+open-loop resnet18|cifar100|pr128|seed2345 3b 2.36e-01, 4b 6.60e-02, 5b 1.68e-03, 6b 2.10e-06, 7b 0.00e+00
+S7 S resnet18/cifar100 PR128 8b seed2345 hw0 rn0.0: acc 72.3047 (n=5120) altered 0.000e+00 [620.6s]
+open-loop resnet18|cifar100|pr64|seed2345 3b 8.80e-02, 4b 5.42e-03, 5b 1.56e-05, 6b 0.00e+00, 7b 0.00e+00
+S7 S resnet18/cifar100 PR64 5b seed2345 hw0 rn0.0: acc 68.8672 (n=5120) altered 2.551e-05 [964.4s]
+open-loop resnet18|cifar10|pr128|seed3456 3b 1.97e-01, 4b 3.96e-02, 5b 7.42e-04, 6b 9.11e-07, 7b 0.00e+00
+S7 S resnet18/cifar10 PR128 8b seed3456 hw0 rn0.0: acc 89.7656 (n=5120) altered 0.000e+00 [620.0s]
+open-loop resnet18|cifar10|pr64|seed3456 3b 6.09e-02, 4b 2.75e-03, 5b 9.64e-06, 6b 0.00e+00, 7b 0.00e+00
+S7 S resnet18/cifar10 PR64 5b seed3456 hw0 rn0.0: acc 89.2188 (n=5120) altered 1.208e-05 [964.0s]
+open-loop resnet18|cifar10|pr72|seed3456 3b 7.91e-02, 4b 4.51e-03, 5b 1.99e-05, 6b 0.00e+00, 7b 0.00e+00
+S7 S resnet18/cifar10 PR72 5b seed3456 hw0 rn0.0: acc 88.1836 (n=5120) altered 8.848e-05 [883.6s]
+open-loop vgg8|cifar10|pr128|seed3456 3b 1.40e-01, 4b 2.42e-02, 5b 4.31e-04, 6b 2.42e-07, 7b 0.00e+00
+S7 S vgg8/cifar10 PR128 8b seed3456 hw0 rn0.0: acc 90.1562 (n=5120) altered 0.000e+00 [581.3s]
+open-loop vgg8|cifar10|pr64|seed3456 3b 3.80e-02, 4b 1.61e-03, 5b 4.25e-06, 6b 0.00e+00, 7b 0.00e+00
+S7 S vgg8/cifar10 PR64 5b seed3456 hw0 rn0.0: acc 89.8633 (n=5120) altered 5.929e-06 [986.2s]
+open-loop vgg8|cifar10|pr72|seed3456 3b 5.02e-02, 4b 2.82e-03, 5b 1.62e-05, 6b 0.00e+00, 7b 0.00e+00
+S7 S vgg8/cifar10 PR72 5b seed3456 hw0 rn0.0: acc 89.1602 (n=5120) altered 2.257e-05 [894.8s]
+open-loop resnet18|cifar100|pr128|seed3456 3b 2.34e-01, 4b 5.95e-02, 5b 8.99e-04, 6b 2.81e-07, 7b 0.00e+00
+S7 S resnet18/cifar100 PR128 8b seed3456 hw0 rn0.0: acc 72.4023 (n=5120) altered 0.000e+00 [620.5s]
+open-loop resnet18|cifar100|pr64|seed3456 3b 8.30e-02, 4b 3.74e-03, 5b 7.36e-06, 6b 0.00e+00, 7b 0.00e+00
+S7 S resnet18/cifar100 PR64 5b seed3456 hw0 rn0.0: acc 72.5195 (n=5120) altered 8.092e-06 [964.5s]
