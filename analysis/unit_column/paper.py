@@ -75,6 +75,15 @@ for r in _r11:
         EX[:] = [x for x in EX if not same(x)]; EX.append(d)
     else:
         A10[:] = [x for x in A10 if not same(x)]; A10.append(d)
+# ---------------- S14: VGG8/CIFAR-10 256-row PR192/5-bit with exact offset on the full test set (replaces the 2 048-image S9 point)
+if (R/'S14_runs.csv').exists():
+    for r in csv.DictReader(open(R/'S14_runs.csv')):
+        if r['differential'] != '0' or r['model'] != 'vgg8': continue
+        c = np.load(R/'S14_preds'/r['pred_file']); key = (r['model'], r['dataset']); sub = int(r['sub_array']); pr = int(r['pr']); b = int(r['bits'])
+        cfg = f"{key[0]}|{key[1]}|sub{sub}|pr{pr}"
+        d = dict(model=key[0], dataset=key[1], sub=sub, pr=pr, b=b, seed=1234, ex=1, ck='orig', **stat(c, REF[key]),
+                 f_all=tail(cfg, b), f_sig=tail(cfg, b, 'signal'), f_off=tail(cfg, b, 'offset'))
+        EX[:] = [x for x in EX if (x['model'], x['dataset'], x['sub'], x['pr'], x['b'], x.get('ck', 'orig'), x['seed']) != (key[0], key[1], sub, pr, b, 'orig', 1234)]; EX.append(d)
 json.dump(dict(EX=EX, N256=N256, ABL=ABL, A10=A10, NOISE=NOISE), open(OUT/'points.json', 'w'), indent=1, default=float)
 if __name__ == '__main__':
     for d in sorted(EX, key=lambda d: (d['model'], d['dataset'], d['sub'], d['b'], d['pr'], d['seed'])):

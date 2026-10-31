@@ -1,13 +1,13 @@
 cff-version: 1.2.0
 message: "If you use this code or data, please cite it as below."
-title: "Unit-Column Clipping Limits the ADC Resolution in Offset-Encoded Analog Compute-in-Memory: code and data"
+title: "Offset Encoding Can Cost Two ADC Bits in Analog Compute-in-Memory: The Unit Column and the Weight Shift — code and data"
 authors:
   - family-names: "Gökgöz"
     given-names: "Baki"
     affiliation: "Department of Computer Technologies, Torul Vocational School, Gümüşhane University"
     orcid: "https://orcid.org/0000-0001-8166-6282"
-version: "1.3.0"
-date-released: "2026-10-30"
+version: "1.4.0"
+date-released: "2026-10-31"
 license: MIT
 doi: "10.5281/zenodo.23573121"
 repository-code: "https://github.com/bakigkgz1/cim-minimum-viable-adc"
